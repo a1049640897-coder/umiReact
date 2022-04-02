@@ -3,17 +3,20 @@ import React,{Component} from 'react';
 import {Button} from 'antd'
 import ChildCp from './components/chidCp';
 import ChildClock from './components/chidClock';
+import ChildForm from './components/form';
 export default class Demo extends Component {
 
 //  组件的生命周期 constructor() static getDerivedFormProps() render() componentDidMount()
 
  constructor(props){ 
     super(props)
-    this.state  = { counter:0 }
+    this.state  = {
+         counter:0,
+         elList:[1,2,3,4,5,6,7,8,9,10]
+    }
     // this.addBtn = this.addBtn.bind(this)
  }
   addBtn(){
-      console.log('addBtn');
     this.setState((state)=>({
         counter:state.counter+1
     }))
@@ -30,7 +33,6 @@ export default class Demo extends Component {
      return (
          <div>
              <div className='demo'>
-                 这是测试页面
                  <h1>{this.state.counter}</h1>
                 <div><Button style={{marginTop:'10px'}} onClick= {()=>this.addBtn() }>+</Button></div>
                 <div><Button style={{marginTop:'10px'}} onClick= { this.delBtn }>-</Button></div>
@@ -39,7 +41,21 @@ export default class Demo extends Component {
                 </div>
                 <div className='clock'>
                 <ChildClock></ChildClock>
+                <div>
+                  <ul>
+                     {
+                         this.state.elList.map((item,index)=>{
+                                return <li key={index}>{item}</li>
+                         } )
+                     }
+                  </ul>
                 </div>
+                <div>
+                    <ChildForm name='这是父组件的值'></ChildForm>
+               </div> 
+                                            
+                </div>
+                
              </div>
          </div> 
      )
