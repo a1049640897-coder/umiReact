@@ -4,7 +4,7 @@ export default {
       path: '/',
       component: '../layouts/index.js',
       routes: [
-        { path: '/', component: './index.js',name:'home',title:'home' },
+        { path: '/', component: './home/index.jsx',name:'home',title:'home' },
         { path: '/demo', component: './demo/index.js',name:'demo',title:'demo' },
         // { path: '/demo', component: './demo.js',name:'demo',title:'demo' }
       ]

@@ -8,5 +8,30 @@ module.exports = {
     alias: {
       '@': require('path').resolve(__dirname, 'src'),
     },
+    rules: [
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          "style-loader",
+          "css-loader",
+          "less-loader",
+        ],
+      },
+    ],
   },
+  // 创建less-loader配置
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.less$/i,
+  //       use: [
+  //         // compiles Less to CSS
+  //         "style-loader",
+  //         "css-loader",
+  //         "less-loader",
+  //       ],
+  //     },
+  //   ],
+  // },
 };
